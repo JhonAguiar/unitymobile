@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tab2"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-grid style="width: 100%;">
+      <ion-row>
+        <ion-col size="10">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <b>{{ loadedIncident?.FULLNAME }}</b>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <label
+                  style="font-size: 14px;color: #fff;margin-bottom: -15px;padding-bottom: -15px;">{{ loadedIncident?.INCIDENTDATE | date: "MM/dd/yyyy"}}</label>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title><b>{{ loadedIncident?.TICKETNR }}</b></ion-card-title>
+      <ion-card-subtitle>{{ loadedIncident?.SUBJECTTEXT }}</ion-card-subtitle>
+
+    </ion-card-header>
+
+    <ion-card-content>
+   
+      {{ loadedSolution?.RESOLUTION }}
+    
+      <mat-divider></mat-divider>
+
+      {{ loadedIncident?.DESCRIPTION }}
+ 
+      <mat-card-footer style="margin-top: 25px;margin-bottom: 1px;margin-left: 1px;">
+        <span style="font-size: 12px;"><b>Priority:</b> {{ loadedIncident?.PRIORITYNAME }}</span>
+      </mat-card-footer>
+   
+    
+    </ion-card-content>
+  </ion-card>
+
+  <mat-card class="example-card" style="display:none">
+  </mat-card>
+
+ 
+</ion-content>

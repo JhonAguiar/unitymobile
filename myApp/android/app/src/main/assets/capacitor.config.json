@@ -1,0 +1,12 @@
+{
+  "appId": "com.unity.mobile",
+  "appName": "unityMobile",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}
