@@ -1,0 +1,39 @@
+<ion-content>
+  <div class="main_content_div">
+
+
+    <div class="shape_div1"></div>
+    <div class="shape_div2"></div>
+
+    <!-- <img src="assets/imgs/car.png" class="logo_image"> -->
+    <ion-label class="protitle">Unity</ion-label>
+    <ion-label class="head_lbl">LOGIN</ion-label>
+
+    <div class="form_div">
+      <form [formGroup]="WelcomeForm" (ngSubmit)="onFormSubmit()">
+        <ion-input type="text" placeholder="Email ID" formControlName="email"></ion-input>
+        
+        <ion-input type="text" placeholder="Password" formControlName="pass"></ion-input>
+
+        <ion-button class="login_btn" expand="block" (click)="goToRides()">LOGIN</ion-button>   
+      </form>
+      <br>
+      <div *ngIf="email.errors" class="alert alert-danger">
+        <div *ngIf="email.errors.required">
+          Email is required.
+        </div>
+        <div *ngIf="email.errors.pattern">
+          Email not valid, incorrect format.
+        </div> 
+        <div *ngIf="email.errors?.maxlength">
+          Maximum size is 50 characters.
+        </div> 
+      </div>
+      
+      
+      
+      
+    </div>
+
+  </div>
+</ion-content>
