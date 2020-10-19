@@ -13,7 +13,7 @@
       <form [formGroup]="WelcomeForm" (ngSubmit)="onFormSubmit()">
         <ion-input type="text" placeholder="Email ID" formControlName="email"></ion-input>
         
-        <ion-input type="text" placeholder="Password" formControlName="pass"></ion-input>
+        <ion-input type="password" placeholder="Password" formControlName="pass"></ion-input>
 
         <ion-button class="login_btn" expand="block" (click)="goToRides()">LOGIN</ion-button>   
       </form>

@@ -10,11 +10,11 @@ import { Router } from '@angular/router';
 })
 export class MyhelpdeskPage implements OnInit {
   incidents: Helpdesk[];
-
+  user_id : string =  sessionStorage.getItem("user_id");
   constructor(private _HelpdeskService: HelpdeskService,private router: Router) { }
 
   ngOnInit() {
-    this._HelpdeskService.getincidents()
+    this._HelpdeskService.getincidents(this.user_id)
     .subscribe (
       data=>
       {
@@ -28,7 +28,7 @@ export class MyhelpdeskPage implements OnInit {
   }
 
   startnewincident() {
-    this.router.navigate(['/inbox']);
+    this.router.navigate(['/newincident']);
   }
 
   doReorder(ev: any) {

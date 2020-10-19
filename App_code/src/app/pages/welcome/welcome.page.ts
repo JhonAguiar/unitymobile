@@ -2,7 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule , FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HelpdeskService } from 'src/app/services/helpdesk.service';
+import { HelpdeskService } from '../../services/Helpdesk.service';
+import { Helpdesk } from '../../services/helpdesk.model';
 
 @Component({
   selector: 'app-welcome',
@@ -49,19 +50,23 @@ export class WelcomePage implements OnInit {
     }
 
 
-    this.helpdeskServ.sendLogin(this.WelcomeForm.get("email").value, this.WelcomeForm.get("pass").value).subscribe((data : any) => {
-      this.createSession(this.WelcomeForm.get("email").value, data.id, data.user_id);
-      alert("ok");
+    this.helpdeskServ.submitLogin(this.WelcomeForm.get("email").value, this.WelcomeForm.get("pass").value).subscribe((data : any) => {
+      if(data[0] == undefined){
+        alert("User doesn't exist")
+      }else{
+        this.createSession(this.WelcomeForm.get("email").value, data[0].id, data[0].userid);
+        this.router.navigate(['/tabs'])
+      }
     })
     
 
-    this.router.navigate(['/tabs'])
+    
   }
 
   createSession(email, id, user_id){
-    sessionStorage.setItem('mail', 'value');
-    sessionStorage.setItem('id', 'value');
-    sessionStorage.setItem('user_id', 'value');
+    sessionStorage.setItem('mail', email);
+    sessionStorage.setItem('id', id);
+    sessionStorage.setItem('user_id', user_id);
   }
 
 }

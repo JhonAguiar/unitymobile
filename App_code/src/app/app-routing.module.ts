@@ -81,11 +81,7 @@ const routes: Routes = [
   {
     path: 'car-info',
     loadChildren: () => import('./pages/car-info/car-info.module').then( m => m.CarInfoPageModule)
-  },
-  {
-    path: 'history-detail',
-    loadChildren: () => import('./pages/history-detail/history-detail.module').then( m => m.HistoryDetailPageModule)
-  },
+  }, 
   {
     path: 'payments',
     loadChildren: () => import('./pages/payments/payments.module').then( m => m.PaymentsPageModule)
@@ -114,7 +110,7 @@ const routes: Routes = [
         children: [
           {
             path: ':incidentNr',
-            loadChildren: () => import('./pages/incident-detail/incident-detail.module').then( m => m.IncidentDetailPageModule)
+            loadChildren: () => import('./pages/technician-detail/technician-detail.module').then( m => m.TechnicianDetailPageModule)
           }
         ]
       },
@@ -129,6 +125,30 @@ const routes: Routes = [
       }
     
     ]
+  },
+  {
+    path: 'newincident',
+    loadChildren: () => import('./pages/newincident/newincident.module').then( m => m.NewincidentPageModule)
+  },
+  {
+    path: 'technician',
+    loadChildren: () => import('./pages/technician/technician.module').then( m => m.TechnicianPageModule)
+  },
+  {
+    path: 'technician-detail',
+    loadChildren: () => import('./pages/technician-detail/technician-detail.module').then( m => m.TechnicianDetailPageModule)
+  },
+  {
+    path: 'solvedincident',
+    loadChildren: () => import('./pages/solvedincident/solvedincident.module').then( m => m.SolvedincidentPageModule)
+  },
+  {
+    path: 'solvedincident-detail',
+    loadChildren: () => import('./pages/solvedincident-detail/solvedincident-detail.module').then( m => m.SolvedincidentDetailPageModule)
+  },
+  {
+    path: 'historyincidents-detail',
+    loadChildren: () => import('./pages/historyincidents-detail/historyincidents-detail.module').then( m => m.HistoryincidentsDetailPageModule)
   }
 ];
 @NgModule({

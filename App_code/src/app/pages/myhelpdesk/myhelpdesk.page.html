@@ -10,10 +10,10 @@
 </ion-header>
 
 <ion-content>
-  <div class="main_content_div">
-    <div class="list_div" *ngFor="let incident of incidents">
+  <div class="main_content_div" >
+    <div class="list_div" *ngFor="let incident of incidents" [routerLink]="['../../',incident.NR]" style="display: inline-flex;">
       <div class="user_image" [style.backgroundImage]="'url(assets/imgs/user.jpg)'"></div>
-      <div class="content_div" [routerLink]="['../../',incident.NR]">
+      <div class="content_div" >
         <ion-label class="username"><b>{{incident.SUBJECTTEXT }}</b></ion-label>
         <ion-label class="msg">{{ incident.DESCRIPTION }}</ion-label>
       </div>

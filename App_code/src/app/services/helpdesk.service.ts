@@ -10,18 +10,33 @@ export class HelpdeskService {
 
   constructor(private httpclient: HttpClient) { }
 
-  getincidents(): Observable<any> {
+  getincidents(elem : string): Observable<any> {
     //return this.httpclient.get("https://10.20.10.22/unitycore/api/v1/HelpdeskIncidents/selecttbHelpdeskIncidentPerUsername/gjansen");
-    return this.httpclient.get("https://unitycore.acts-curacao.com/unitycore/api/v1/HelpdeskIncidents/selecttbHelpdeskIncidentPerUsername/gjansen");
+    return this.httpclient.get("https://unitycore.acts-curacao.com/unitycore/api/v1/HelpdeskIncidents/selecttbHelpdeskIncidentPerUsername/"+elem);
 }
 
-getassignedincidents(): Observable<any> {
-    return this.httpclient.get("https://unitycore.acts-curacao.com/unitycore/api/v1/HelpdeskIncidents/SELECTLISTMYINCIDENTREQUESTSPERUSERNAME/dquitora/Y");
+getincidentsbytechnician(elem : string): Observable<any> {
+    //return this.httpclient.get("https://10.20.10.22/unitycore/api/v1/HelpdeskIncidents/selecttbHelpdeskIncidentPerUsername/gjansen");
+    return this.httpclient.get("https://unitycore.acts-curacao.com/unitycore/api/v1/HelpdeskIncidents/selecttbHelpdeskIncidentByTechnician/"+elem);
 }
 
-getincidentsDone(): Observable<any> {
+getassignedincidents(elem : string): Observable<any> {
+    return this.httpclient.get("https://unitycore.acts-curacao.com/unitycore/api/v1/HelpdeskIncidents/SELECTLISTMYINCIDENTREQUESTSPERUSERNAME/"+elem+"/Y");
+}
+
+getincidentsDone(elem : string): Observable<any> {
     //return this.httpclient.get("https://10.20.10.22/unitycore/api/v1/HelpdeskIncidents/selecttbHelpdeskIncidentPerUsername/gjansen");
-    return this.httpclient.get("https://unitycore.acts-curacao.com/unitycore/api/v1/HelpdeskIncidents/SELECTHELPDESKINCIDENTPERUSERNAME/gjansen/3");
+    return this.httpclient.get("https://unitycore.acts-curacao.com/unitycore/api/v1/HelpdeskIncidents/SELECTHELPDESKINCIDENTPERUSERNAME/"+elem+"/3");
+}
+
+getincidentssolved(elem : string): Observable<any> {
+    //return this.httpclient.get("https://10.20.10.22/unitycore/api/v1/HelpdeskIncidents/selecttbHelpdeskIncidentPerUsername/gjansen");
+    return this.httpclient.get("https://unitycore.acts-curacao.com/unitycore/api/v1/HelpdeskIncidents/SELECTHELPDESKINCIDENTPERUSERID/"+elem+"/3");
+}
+
+getincidentshistory(elem : string): Observable<any> {
+    //return this.httpclient.get("https://10.20.10.22/unitycore/api/v1/HelpdeskIncidents/selecttbHelpdeskIncidentPerUsername/gjansen");
+    return this.httpclient.get("https://unitycore.acts-curacao.com/unitycore/api/v1/HelpdeskIncidents/SELECTHELPDESKINCIDENTPERUSERID/"+elem+"/4");
 }
 
 getincident(incidentNr: string): Observable<any> {
@@ -58,13 +73,16 @@ submitincidentResolution(HelpdeskResolution1: HelpdeskResolution): Observable<He
    }); 
    let options = {
     headers: httpHeaders
-    }; 
+ }; 
         return this.httpclient.post<HelpdeskResolution>("https://unitycore.acts-curacao.com/unitycore/api/v1/INCIDENTRESOLUTIONs/INSERTINCIDENTRESOLUTION", HelpdeskResolution1,options);       
   
       
 }
 
-sendLogin(user : string, pass: string){
-    return this.httpclient.get<any>("https://unitycore.acts-curacao.com/unitycore/api/v1/Users/SELECTUSERIDPEREMAILPASS/"+user+"/pass");
+submitLogin(email: string, pass: string): Observable<any> {
+    return this.httpclient.get("https://unitycore.acts-curacao.com/unitycore/api/v1/Users/SELECTUSERIDPEREMAILPASS" + "/"+ email + "/" + pass);
 }
+
+
+
 }

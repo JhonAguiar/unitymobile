@@ -1,0 +1,58 @@
+<!-- <ion-header>
+  <div class="header_div">
+    <ion-buttons slot="start" style="position: absolute;left: 16px">
+      <ion-back-button text="" color='light' mode="md"></ion-back-button>
+    </ion-buttons>
+    <ion-label>Mausam Chavda</ion-label>
+  </div>
+</ion-header> -->
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">New Incident</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!-- <mat-card class="example-card">
+    <mat-card-header style="margin-left: -15px;">
+      <mat-card-title>Incident Properties</mat-card-title>
+      <mat-card-subtitle>Description is Mandatory</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field style="width: 100%;">
+        <mat-label>Describe your incident</mat-label>
+        <textarea ng-trim="false" maxlength="350" style="line-height: 1.5;" matInput matInput placeholder="Ex. The window in the meeting room..." matTextareaAutosize
+          cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="30" id="DESCRIPTION1" [(ngModel)]="description" ng-keypress="updateEditor()"></textarea>
+          
+        </mat-form-field>
+        <span>{{description.length}} of 350</span> 
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" id="pbSubmit" [disabled]="description == ''" (click)="submitnewincident()">Submit <mat-icon inline=true>send</mat-icon></button>
+    </mat-card-actions>
+  </mat-card> -->
+  <div class="card">
+    <div class="form_div">
+      <form (ngSubmit)="submitnewincident()">     
+          <ion-item>
+            <ion-label>Subject</ion-label>
+            <ion-input type="text" [(ngModel)]=subjectnr name="subject1"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Describe your incident</ion-label>
+            <ion-textarea [(ngModel)]="description" name="DESCRIPTION1"></ion-textarea>
+          </ion-item>
+          <ion-item>
+            <ion-label>Priority</ion-label>
+            <ion-textarea [(ngModel)]=prioritynr name="PRIORITYNR1"></ion-textarea>
+          </ion-item>
+          <button ion-button type="submit" block>Submit</button>       
+      </form>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+
+</ion-footer>

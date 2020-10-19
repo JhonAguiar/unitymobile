@@ -23,7 +23,11 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../pages/find-rides/find-rides.module').then(m => m.FindRidesPageModule)
+              import('../pages/technician/technician.module').then(m => m.TechnicianPageModule)
+          },
+          {
+            path: ':incidentNr',
+            loadChildren: () => import('../pages/technician-detail/technician-detail.module').then( m => m.TechnicianDetailPageModule)
           }
         ]
       },
@@ -33,7 +37,11 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../pages/offer-rides/offer-rides.module').then(m => m.OfferRidesPageModule)
+              import('../pages/solvedincident/solvedincident.module').then(m => m.SolvedincidentPageModule)
+          },
+          {
+            path: ':incidentNr',
+            loadChildren: () => import('../pages/solvedincident-detail/solvedincident-detail.module').then( m => m.SolvedincidentDetailPageModule)
           }
         ]
       },
@@ -43,7 +51,11 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../pages/myhelpdesk/myhelpdesk.module').then(m => m.MyhelpdeskPageModule)
+              import('../pages/historyincidents/historyincidents.module').then(m => m.HistoryincidentsPageModule)
+          },
+          {
+            path: ':incidentNr',
+            loadChildren: () => import('../pages/historyincidents-detail/historyincidents-detail.module').then( m => m.HistoryincidentsDetailPageModule)
           }
         ]
       },
@@ -54,6 +66,10 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../pages/profile/profile.module').then(m => m.ProfilePageModule)
+          },
+          {
+            path: ':incidentNr',
+            loadChildren: () => import('../pages/historyincidents-detail/historyincidents-detail.module').then( m => m.HistoryincidentsDetailPageModule)
           }
         ]
       },

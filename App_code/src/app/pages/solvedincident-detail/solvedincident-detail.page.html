@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Solved Incident Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title><b>{{ loadedIncident?.TICKETNR }}</b></ion-card-title>
+      <ion-card-subtitle>{{ loadedIncident?.SUBJECTTEXT }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{ loadedIncident?.DESCRIPTION }}
+    </ion-card-content>
+  </ion-card>
+  <div class="card">
+    <div class="form_div">
+      <form (ngSubmit)="submittechnicianresolve()">            
+          <ion-item>
+            <ion-label>Comment</ion-label>
+            <ion-textarea [(ngModel)]="resolution" name="RESOLUTION1"></ion-textarea>
+          </ion-item>          
+          <button ion-button type="submit" block>Close</button>       
+      </form>
+    </div>
+  </div>
+</ion-content>
